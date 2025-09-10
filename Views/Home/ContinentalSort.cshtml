@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NewsWebPortal.Models.DTO.CountryDTO>
+
+@{
+    ViewData["Title"] = "ContinentalSort";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <p class="text-danger">@ViewBag.Message</p>
+}
+else
+{
+    
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                @if (!string.IsNullOrEmpty(item.Flag))
+                {
+                    <a asp-action="BangladeshCountrySort" asp-controller="Home" asp-route-q="@item.Name" style="cursor:pointer">
+                        <img src="@Url.Content(item.Flag)"
+                             class="card-img-top"
+                             alt="@item.Continent"
+                             style="height:80px; object-fit:contain;" />
+                    </a>
+                }
+                <div class="card-body d-flex flex-column">
+
+                    
+                    <div class="mt-auto d-flex justify-content-center">
+                        
+                        <h5 class="card-title text-center">@item.Name</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+}

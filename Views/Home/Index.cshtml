@@ -1,0 +1,42 @@
+﻿@model IEnumerable<NewsWebPortal.Models.Domain.NewsPaperDTO>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h3 class="mb-4">ViewBag.CountryIp</h3>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                @if (!string.IsNullOrEmpty(item.Image))
+                {
+                    <a href="@item.NewspaperLink" target="_blank" rel="noopener noreferrer">
+                        <img src="@Url.Content(item.Image)"
+                             class="card-img-top"
+                             alt="@item.NewspaperName"
+                             style="height:80px; object-fit:contain;" />
+                    </a>
+                }
+                <div class="card-body d-flex flex-column">
+                    
+                    <p class="card-text text-center mb-2">
+                        @{
+                            var countries = (SelectList)ViewBag.country;
+                            var countryName = countries.FirstOrDefault(c => c.Value == item.CountryId.ToString())?.Text;
+                        }
+                        <small>@countryName</small>
+                    </p>
+                    <div class="mt-auto d-flex justify-content-between">
+                        <a class="btn btn-sm btn-outline-info text-black" asp-action="Info" asp-controller="Home" asp-route-id="@item.Id">Info</a>
+                        <h5 class="card-title text-center">@item.NewspaperName</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

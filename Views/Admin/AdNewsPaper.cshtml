@@ -1,0 +1,79 @@
+﻿@model NewsWebPortal.Models.Domain.NewsPaperDTO
+
+@{
+    ViewData["Title"] = "AdNewsPaper";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-content-center mb-3">
+    <h2 class="mb-0">Create NewsPaper</h2>
+    <a asp-action="Index" class="btn btn-warning">Back</a>
+</div>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="AdNewsPaper" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NewspaperName" class="control-label">Newspaper Name</label>
+                        <input asp-for="NewspaperName" class="form-control" />
+                        <span asp-validation-for="NewspaperName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="NewspaperLink" class="control-label">Newspaper Link</label>
+                        <input asp-for="NewspaperLink" class="form-control" />
+                        <span asp-validation-for="NewspaperLink" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CountryId" class="control-label">Country</label>
+                        <select asp-for="CountryId" class="form-control" asp-items="ViewBag.Countries">
+                            <option value="">--- Select a Country ---</option>
+                        </select>
+                        <span asp-validation-for="CountryId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Image" class="control-label">NewsPaper Image</label>
+                        <input asp-for="Image" class="form-control" type="file" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label">Status</label>
+                        <select asp-for="Status" class="form-control" asp-items="ViewBag.Sta">
+                            <option value="">--- Select a Status ---</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label asp-for="NewspaperInfo" class="control-label">Newspaper Info</label>
+                    <textarea asp-for="NewspaperInfo" class="form-control" rows="8"></textarea>
+                    <span asp-validation-for="NewspaperInfo" class="text-danger"></span>
+                </div>
+                
+            <div class="form-group mt-3">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

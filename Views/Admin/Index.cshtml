@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NewsWebPortal.Models.Domain.NewsPaperDTO>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>NewsPaper List</h1>
+<p>
+    <a class="btn btn-primary" asp-action="AdNewsPaper">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Newspaper Name</th>
+            <th>Newspaper Link</th>
+            <th>Country</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NewspaperName)</td>
+                <td>@Html.DisplayFor(modelItem => item.NewspaperLink)</td>
+                <td>
+                    @{
+                        var countries = (SelectList)ViewBag.countries;
+                        var countryName = countries.FirstOrDefault(c => c.Value == item.CountryId.ToString())?.Text;
+                    }
+                    <small>@countryName</small>
+                
+                <td>
+                    <img src="@item.Image" alt="Newspaper Image" style="max-height: 35px;" />
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="EditNewsPaper" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn btn-danger" asp-action="Reject" asp-route-id="@item.Id">Delete</a>
+            </tr>
+        }
+    </tbody>
+</table>

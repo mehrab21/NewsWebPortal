@@ -1,0 +1,22 @@
+﻿@model NewsWebPortal.Models.Domain.NewsPaperDTO
+
+@{
+    ViewData["Title"] = "Info";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="d-flex justify-content-end">
+    <a class="btn btn-warning" style="text-align:end" asp-action="Index" asp-controller="Home">Back</a>
+</div>
+
+<div class="flex-grow-1">
+    <div class="row">
+        <div style="text-align:center; border: 2px solid #FFFFFF; margin: 70px; padding:20px; background-color:#FFFFFF">
+            <h2 style="text-transform:uppercase;font-size:50px; margin-top:10px">@Model.NewspaperName</h2>
+            <img src="@Model.Image" style="width:100px; height:100px" />
+            <br />
+            <a href="@Model.NewspaperLink" class="btn btn-link btn-outline-primary text-black mt-5" target="_blank">Visit NewsPaper</a>
+        </div>
+    </div>
+   
+</div>
