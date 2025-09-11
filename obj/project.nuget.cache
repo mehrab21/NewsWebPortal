@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HeFD12N2lzs=",
+  "dgSpecHash": "ST+AGY2l40w=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\NewsWebPortal.csproj",
+  "projectFilePath": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\NewsWebPortal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rizbe\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Rizbe\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

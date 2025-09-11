@@ -1,0 +1,35 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h1>Search</h1>
+
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-warning">@ViewBag.Message</div>
+}
+else if (Model != null && Model.Any())
+{
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                @if (item.Type == "Newspaper")
+                {
+                    <a href="@item.Link" target="_blank">@item.Name</a> <span class="badge bg-info text-dark">Newspaper</span>
+                }
+                else if (item.Type == "Country")
+                {
+                    @item.Name <a class="badge bg-secondary" asp-action="CountrySort" asp-controller="Home" asp-route-q="@item.Name">Country</a>
+                }
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No results found.</p>
+}

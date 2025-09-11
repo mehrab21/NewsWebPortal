@@ -1,26 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\",
+  "WorkspaceRootPath": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\users\\rizbe\\desktop\\newswebportal\\views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\users\\rizbe\\desktop\\newswebportal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\users\\rizbe\\desktop\\newswebportal\\services\\geolocationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:services\\geolocationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\users\\rizbe\\desktop\\newswebportal\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\user things here\\dotnet_project\\newswebportal\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\users\\rizbe\\desktop\\newswebportal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\user things here\\dotnet_project\\newswebportal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\user things here\\dotnet_project\\newswebportal\\views\\home\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:views\\home\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|c:\\user things here\\dotnet_project\\newswebportal\\views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9287A97D-9AFD-4F81-9443-942B79921662}|NewsWebPortal.csproj|solutionrelative:views\\shared\\_homelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,63 +35,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Services\\UserService.cs*",
+              "RelativeToolTip": "Services\\UserService.cs*",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAowLQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T10:54:03.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "_HomeLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Views\\Shared\\_HomeLayout.cshtml",
+              "DocumentMoniker": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Views\\Shared\\_HomeLayout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_HomeLayout.cshtml",
-              "ToolTip": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Views\\Shared\\_HomeLayout.cshtml",
+              "ToolTip": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Views\\Shared\\_HomeLayout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_HomeLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEsAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-10T08:31:57.503Z",
+              "WhenOpened": "2025-09-11T10:43:59.207Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GeoLocationService.cs",
-              "DocumentMoniker": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Services\\GeoLocationService.cs",
-              "RelativeDocumentMoniker": "Services\\GeoLocationService.cs",
-              "ToolTip": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Services\\GeoLocationService.cs",
-              "RelativeToolTip": "Services\\GeoLocationService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwCIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:28:48.179Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Title": "Search.cshtml",
+              "DocumentMoniker": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Views\\Home\\Search.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Search.cshtml",
+              "ToolTip": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Views\\Home\\Search.cshtml",
+              "RelativeToolTip": "Views\\Home\\Search.cshtml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-10T08:04:01.012Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Services\\UserService.cs",
-              "RelativeToolTip": "Services\\UserService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA/wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:03:01.915Z"
+              "WhenOpened": "2025-09-11T10:29:11.784Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAIwBsAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCQAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T07:27:37.713Z"
+              "WhenOpened": "2025-09-11T10:28:59.789Z",
+              "EditorCaption": ""
             }
           ]
         }

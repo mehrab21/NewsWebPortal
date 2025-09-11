@@ -18,22 +18,26 @@ namespace NewsWebPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+
             string ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "8.8.8.8";
+            
             if (ip == "::1")
             {
-                ip = "8.8.8.8"; // IPv4 loopback
+                //ip = "103.100.234.28"; bangladesh ip for check
+                //ip = "8.8.8.8"; //us ip for check
+                ip = "27.104.0.1"; // singapure ip for check
             }
-            // Step 2: Get user country
+
             string? country = await _geoService.GetCountryByIPAsync(ip);
-            ViewBag.CountryIp = country;
-            // Step 3: Get newspapers for that country
+            string Countryname = country ?? "Unknown";
+            ViewBag.CountryIp = Countryname;
             var newspapers = new List<NewsPaperDTO>();
             if (!string.IsNullOrEmpty(country))
             {
                 newspapers = await _userService.GetAllNewspaperByCountryName(country);
             }
 
-            // Optional: Show message if no newspapers
+
             if (newspapers.Count == 0)
             {
                 ViewBag.Message = $"No newspapers found for your country: {country}";
@@ -44,12 +48,12 @@ namespace NewsWebPortal.Controllers
             return View(newspapers);
 
         }
-        
+
         public async Task<IActionResult> AddNewMedia()
         {
             var countries = await _userService.GetAllCountry();
-            ViewBag.country = new SelectList(countries,"Id", "Name");
-           
+            ViewBag.country = new SelectList(countries, "Id", "Name");
+
             return View();
         }
         [HttpPost]
@@ -66,8 +70,15 @@ namespace NewsWebPortal.Controllers
             return View(result);
         }
         [HttpGet]
-        public async Task<IActionResult> BangladeshCountrySort(string q)
+        public async Task<IActionResult> CountrySort(string q)
         {
+            ViewBag.CountryName = q;
+            if (string.IsNullOrEmpty(q))
+            {
+                ViewBag.Message = "Invalid request. Country is missing.";
+                return View(new List<NewsPaperDTO>()); // return empty list
+            }
+
             var countries = await _userService.GetAllCountry();
             ViewBag.country = new SelectList(countries, "Id", "Name");
 
@@ -76,18 +87,50 @@ namespace NewsWebPortal.Controllers
             {
                 ViewBag.Message = $"No Newspaper found for continent '{q}'";
             }
+           
             return View(result);
         }
         [HttpGet]
-        public async Task<IActionResult> ContinentalSort(string q)
+        public async Task<IActionResult> ContinentalSort(string continent)
         {
-         
-            var result = await _userService.GetAllCountryByContinentalName(q);
+
+            var result = await _userService.GetAllCountryByContinentalName(continent);
             if (result.Count == 0)
             {
-                ViewBag.Message = $"No countries found for continent '{q}'";
+                ViewBag.Message = $"No countries found for continent '{continent}'";
             }
             return View(result);
         }
+        public async Task<IActionResult> Search(string q)
+        {
+            var newspaperResults = await _userService.SearchNewspapersAsync(q);
+            var countryResults = await _userService.SearchCountryAsync(q);
+
+
+            var combinedResults = newspaperResults.Select(n => new
+            {
+                Type = "Newspaper",
+                Id = n.Id,
+                Name = n.NewspaperName,
+                Link = n.NewspaperLink
+            })
+            .Union(countryResults.Select(c => new
+            {
+                Type = "Country",
+                Id = c.Id,
+                Name = c.Name,
+                Link = ""
+            }))
+            .ToList();
+
+            if (!combinedResults.Any())
+            {
+                ViewBag.Message = $"No newspapers or countries found for '{q}'";
+            }
+
+            return View(combinedResults);
+        }
+
+
     }
 }

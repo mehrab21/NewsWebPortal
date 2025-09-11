@@ -5,8 +5,13 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<h3 class="mb-4">ViewBag.CountryIp</h3>
-
+<h3 class="mb-4">@ViewBag.CountryIp Newspaper List</h3>
+@if(ViewBag.Message != null)
+{
+    <p class="text-danger">@ViewBag.Message</p>
+}
+else
+{
 <div class="row">
     @foreach (var item in Model)
     {
@@ -22,7 +27,7 @@
                     </a>
                 }
                 <div class="card-body d-flex flex-column">
-                    
+
                     <p class="card-text text-center mb-2">
                         @{
                             var countries = (SelectList)ViewBag.country;
@@ -40,3 +45,7 @@
         </div>
     }
 </div>
+}
+
+
+

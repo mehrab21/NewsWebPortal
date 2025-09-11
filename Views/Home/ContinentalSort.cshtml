@@ -19,7 +19,7 @@ else
             <div class="card h-100 shadow-sm">
                 @if (!string.IsNullOrEmpty(item.Flag))
                 {
-                    <a asp-action="BangladeshCountrySort" asp-controller="Home" asp-route-q="@item.Name" style="cursor:pointer">
+                    <a asp-action="CountrySort" asp-controller="Home" asp-route-q="@item.Name" style="cursor:pointer">
                         <img src="@Url.Content(item.Flag)"
                              class="card-img-top"
                              alt="@item.Continent"

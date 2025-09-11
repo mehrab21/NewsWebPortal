@@ -43,7 +43,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            
+            <td>
+                    <div>
+                        <a class="btn btn-info" asp-action="EditCountry" asp-route-id="@item.Id">Edit</a> |
+                        <a class="btn btn-danger" asp-action="DeleteCountry" asp-route-id="@item.Id">Delete</a>
+                    </div>
+            </td>
         </tr>
 }
     </tbody>

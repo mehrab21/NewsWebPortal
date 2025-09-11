@@ -15,7 +15,10 @@ namespace NewsWebPortal.Services
         Task<NewsPaperDTO> RequestFromUserNewspaperAsync([FromForm] CreateRequestDTO createRequestDTO);
         Task<NewsPaperDTO> GetNewspaperByIdAsync(string id);
         Task<List<NewsPaperDTO>> GetAllNewspaperByCountryName(string s);
-        Task<List<CountryDTO>> GetAllCountryByContinentalName(string s);
+        Task<List<CountryDTO>> GetAllCountryByContinentalName(string continent);
+        Task<List<NewsPaperDTO>> SearchNewspapersAsync(string q);
+        Task<List<CountryDTO>> SearchCountryAsync(string q);
+
     }
     public class UserService : IUserService
     {
@@ -29,11 +32,44 @@ namespace NewsWebPortal.Services
             _env = env;
             _httpContextAccessor = httpContextAccessor;
         }
+        public async Task<List<NewsPaperDTO>> SearchNewspapersAsync(string q)
+        {
+            return await _context.Newspapers
+                
+                .Where(n => n.NewspaperName.ToLower().Contains(q.ToLower())
+                         )
+                .Select(n => new NewsPaperDTO
+                {
+                    Id = n.Id,
+                    NewspaperName = n.NewspaperName,
+                    CountryId = n.CountryId,
+                    NewspaperLink = n.NewspaperLink,
+                    Image = n.Image
+                }).ToListAsync();
+        }
+        public async Task<List<CountryDTO>> SearchCountryAsync(string q)
+        {
+            return await _context.Countries
+
+                .Where(n => n.Continent.ToLower().Contains(q.ToLower()) ||
+                n.Name.ToLower().Contains(q.ToLower()) ||
+                n.Description.ToLower().Contains(q.ToLower()))
+                .Select(n => new CountryDTO
+                {
+                    Id = n.Id,
+                    Continent = n.Continent,
+                    Name = n.Name,
+                    Flag = n.Flag,
+                    Description = n.Description
+                }).ToListAsync();
+        }
+
         public async Task<List<NewsPaperDTO>> GetAllNewspapersAsync()
         {
             var baseURL = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}";
             return await _context.Newspapers
                 .Where(n => n.Status == "Accepted")
+                .Distinct()
                 .Select(n => new NewsPaperDTO
                 {
                     Id = n.Id,
@@ -130,7 +166,7 @@ namespace NewsWebPortal.Services
                 throw new ArgumentException("not found");
             }
             var baseURL = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}";
-            return await _context.Newspapers
+            var nes = await _context.Newspapers
                 .Where(n => n.CountryId == result.Id && n.Status == "Accepted")
                 .Select(n => new NewsPaperDTO
                 {
@@ -140,21 +176,20 @@ namespace NewsWebPortal.Services
                     CountryId = n.CountryId,
                     NewspaperInfo = n.NewspaperInfo,
                     Image = $"{baseURL}/uploads/{n.Image}"
-                }).ToListAsync();
+                })
+                .ToListAsync();
+            return nes
+         .GroupBy(n => n.NewspaperName.ToLower())
+         .Select(g => g.First())
+         .ToList();
         }
 
-        public async Task<List<CountryDTO>> GetAllCountryByContinentalName(string s)
+        public async Task<List<CountryDTO>> GetAllCountryByContinentalName(string continent)
         {
-           
-            var resultContinent =await _context.Countries.FirstOrDefaultAsync(c => c.Continent.ToLower() == s.ToLower());
-            if (resultContinent == null)
-            {
-                return new List<CountryDTO>();
-            }
-            
             var baseURL = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}";
             var result = await _context.Countries
-                .Where(c => c.Id == resultContinent.Id && c.Continent.ToLower() == resultContinent.Continent.ToLower())
+                .Where(c => c.Continent.ToLower() == continent.ToLower())
+                .Distinct()
                 .Select(n => new CountryDTO
                 {
                     Id = n.Id,

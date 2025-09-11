@@ -33,11 +33,14 @@
                     <small>@countryName</small>
                 
                 <td>
-                    <img src="@item.Image" alt="Newspaper Image" style="max-height: 35px;" />
+                    <img src="@item.Image" alt="Newspaper Image" style="max-height: 35px; width: 100px" />
                 </td>
                 <td>
-                    <a class="btn btn-info" asp-action="EditNewsPaper" asp-route-id="@item.Id">Edit</a> |
-                    <a class="btn btn-danger" asp-action="Reject" asp-route-id="@item.Id">Delete</a>
+                    <div>
+                        <a class="btn btn-info" asp-action="EditNewsPaper" asp-route-id="@item.Id">Edit</a> |
+                        <a class="btn btn-danger" asp-action="Reject" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>

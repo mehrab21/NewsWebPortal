@@ -8431,11 +8431,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\NewsWebPortal.csproj",
+      "projectUniqueName": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\NewsWebPortal.csproj",
       "projectName": "NewsWebPortal",
-      "projectPath": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\NewsWebPortal.csproj",
+      "projectPath": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\NewsWebPortal.csproj",
       "packagesPath": "C:\\Users\\Rizbe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rizbe\\Desktop\\NewsWebPortal\\obj\\",
+      "outputPath": "C:\\USER THINGS HERE\\DOTNET_PROJECT\\NewsWebPortal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

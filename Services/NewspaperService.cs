@@ -5,6 +5,7 @@ using NewsWebPortal.Data;
 using NewsWebPortal.Models.Domain;
 using NewsWebPortal.Models.Domains;
 using NewsWebPortal.Models.DTO;
+using System.Diagnostics.Metrics;
 
 namespace NewsWebPortal.Services
 {
@@ -18,6 +19,10 @@ namespace NewsWebPortal.Services
         Task<NewsPaperDTO> AcceptForPublic(Guid id);
         Task<NewsPaperDTO> DeleteForPublicAsync(Guid id);
         Task<NewsPaperDTO> GetNewspaperByIdAsync(Guid id);
+        Task<CountryDTO> GetCountryByIdAsync(Guid id);
+        Task<CountryDTO> DeleteCountryAsync(Guid id);
+        Task<CountryDTO> EditCountryAsync(CreateCountryDTO createCountryDTO, Guid id);
+        Task<NewsPaperDTO> EditNewspaperAsync(CreateRequestDTO createRequest, Guid id);
     }
     public class NewspaperService : INewspaperService
     {
@@ -140,6 +145,22 @@ namespace NewsWebPortal.Services
             };
         }
 
+        public async Task<CountryDTO> DeleteCountryAsync(Guid id)
+        {
+            var result = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
+            if (result == null)
+                throw new ArgumentException("Country Not Found");
+            _context.Countries.Remove(result);
+            _context.SaveChanges();
+            return await Task.FromResult(new CountryDTO
+            {
+                Id = result.Id,
+                Continent = result.Continent,
+                Name = result.Name
+            });
+
+        }
+
         public Task<NewsPaperDTO> DeleteForPublicAsync(Guid id)
         {
             var result = _context.Newspapers.FirstOrDefault(n => n.Id == id);
@@ -157,6 +178,78 @@ namespace NewsWebPortal.Services
                 Image = result.Image,
                 Status = result.Status
             });
+        }
+
+        public async Task<CountryDTO> EditCountryAsync(CreateCountryDTO createCountryDTO, Guid id)
+        {
+            var country = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
+            if (country == null)
+                throw new ArgumentException("Country not found");
+            
+            country.Continent = createCountryDTO.Continent;
+            country.Name = createCountryDTO.Name;
+            country.Description = createCountryDTO.Description;
+            if (createCountryDTO.Flag != null && createCountryDTO.Flag.Length > 0)
+            {
+                var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(createCountryDTO.Flag.FileName);
+                var uploadsFolder = Path.Combine(_env.WebRootPath, "flags");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    createCountryDTO.Flag.CopyTo(stream);
+                }
+                country.Flag = uniqueFileName;
+            }
+            await _context.SaveChangesAsync();
+            return new CountryDTO
+            {
+                Id = country.Id,
+                Continent = country.Continent,
+                Name = country.Name,
+                Description = country.Description,
+                Flag = country.Flag
+            };
+        }
+
+        public async Task<NewsPaperDTO> EditNewspaperAsync(CreateRequestDTO newsPaperDTO, Guid id)
+        {
+            var newspaper = await _context.Newspapers.FirstOrDefaultAsync(n => n.Id == id);
+            if (newspaper == null)
+                throw new ArgumentException("Newspaper not found");
+            newspaper.NewspaperName = newsPaperDTO.NewspaperName;
+            newspaper.NewspaperLink = newsPaperDTO.NewspaperLink;
+            newspaper.CountryId = newsPaperDTO.CountryId;
+            newspaper.NewspaperInfo = newsPaperDTO.NewspaperInfo;
+            if (newsPaperDTO.Image != null && newsPaperDTO.Image.Length > 0)
+            {
+                var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(newsPaperDTO.Image.FileName);
+                var uploadsFolder = Path.Combine(_env.WebRootPath, "uploads");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    newsPaperDTO.Image.CopyTo(stream);
+                }
+                newspaper.Image = uniqueFileName;
+            }
+            await _context.SaveChangesAsync();
+            return new NewsPaperDTO
+            {
+                Id = newspaper.Id,
+                NewspaperName = newspaper.NewspaperName,
+                NewspaperLink = newspaper.NewspaperLink,
+                CountryId = newspaper.CountryId,
+                NewspaperInfo = newspaper.NewspaperInfo,
+                Image = newspaper.Image,
+                Status = newspaper.Status
+            };
         }
 
         public async Task<List<CountryDTO>> GetAllCountry()
@@ -189,6 +282,23 @@ namespace NewsWebPortal.Services
                     Image = $"{baseURL}/uploads/{n.Image}",
                 })
                 .ToListAsync();
+        }
+
+        public async Task<CountryDTO> GetCountryByIdAsync(Guid id)
+        {
+            var country = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
+            if (country == null)
+                throw new ArgumentException("Country not found");
+            var baseURL = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}";
+            var countryDTO = new CountryDTO
+            {
+                Id = country.Id,
+                Continent = country.Continent,
+                Name = country.Name,
+                Description = country.Description,
+                Flag = $"{baseURL}/flags/{country.Flag}"
+            };
+            return countryDTO;
         }
 
         public Task<NewsPaperDTO> GetNewspaperByIdAsync(Guid id)

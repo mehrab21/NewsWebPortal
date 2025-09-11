@@ -21,30 +21,37 @@
                 </ul>
                 <ul class="navbar-nav">
 
-                    <li class="nav-item" style="border-right: 2px solid #FFFFFF; border-left: 2px solid #FFFFFF; font-size:20px; text-transform:uppercase;">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="BangladeshCountrySort" asp-route-q="@ViewBag.CountryIp">
+                    <li class="nav-item @(ViewData["Title"]?.ToString() == "CountrySort" ? "active" : "")"
+                        style="border-right: 2px solid #FFFFFF; border-left: 2px solid #FFFFFF; font-size:20px; text-transform:uppercase;">
+
+                        <a class="nav-link text-white d-flex align-items-center"
+                           asp-area=""
+                           asp-controller="Home"
+                           asp-action="Index"
+                           asp-route-q="@ViewBag.CountryIp">
+
                             <i class="bi bi-geo-alt-fill me-2"></i>
                             @ViewBag.CountryIp
                         </a>
                     </li>
 
                     <li class="nav-item" style="border-right: 2px solid #FFFFFF; font-size:20px;; text-transform:uppercase;">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-q="Asia">Asia</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-continent="Asia">Asia</a>
                     </li>
                     <li class="nav-item" style="border-right: 2px solid #FFFFFF; font-size:20px;; text-transform:uppercase;">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-q="Europe">Europe</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-continent="Europe">Europe</a>
                     </li>
                     <li class="nav-item" style="border-right: 2px solid #FFFFFF; font-size:20px;; text-transform:uppercase;">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-q="Africa">Africa</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-continent="Africa">Africa</a>
                     </li>
                     <li class="nav-item" style="border-right: 2px solid #FFFFFF; font-size:20px;; text-transform:uppercase;">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-q="North America">North America</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-continent="North America">North America</a>
                     </li>
                     <li class="nav-item" style="border-right: 2px solid #FFFFFF; font-size:20px;; text-transform:uppercase;">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-q="South America">South America</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-continent="South America">South America</a>
                     </li>
                     <li class="nav-item" style="border-right: 2px solid #FFFFFF; font-size:20px;; text-transform:uppercase;">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-q="Oceania">Oceania</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContinentalSort" asp-route-continent="Oceania">Oceania</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -55,9 +62,23 @@
                     </li>
                 </ul>
             </div>
+           
         </nav>
     </header>
     <div class=" flex-grow-1" style="background-color: #F4F6F9">
+        <div class="row">
+            <div class="col-8">
+                </div>
+                <div class="col-4">
+
+                <form asp-action="Search" method="get" class="d-flex mb-3 me-5" role="search" aria-label="Site Search">
+                    <input type="search" name="q" class="form-control me-2" placeholder="Search newspapers or countries..." value="@ViewBag.Query" aria-label="Search">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+
+            </div>
+        </div>
+        
         <div class="row">
             <main class="col-md-10 px-4 py-4">
                 @RenderBody()
