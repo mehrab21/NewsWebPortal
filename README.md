@@ -1,4 +1,4 @@
-![adminlogin](https://github.com/user-attachments/assets/69397d4a-f710-45e8-a6f7-d297e9a57e1e)# NewsWebPortal
+![adminlogin](https://github.com/mehrab21/NewsWebPortal/blob/main/wwwroot/uploads/photo1.jpg)# NewsWebPortal
 
 NewsWebPortal is a dynamic web application built using ASP.NET Core, designed to deliver the latest news articles in an intuitive and responsive interface.
 
@@ -10,16 +10,16 @@ NewsWebPortal is a dynamic web application built using ASP.NET Core, designed to
 - **Search Functionality**: Quickly find articles by keywords.
 ## 📸 Screenshots
 ### Homepage
-![Homepage](uploads/photo1.jpg)
+![Homepage]([uploads/photo1.jpg](https://github.com/mehrab21/NewsWebPortal/blob/main/wwwroot/uploads/photo1.jpg))
 
-### Article Listing
-![Article Listing](uploads/photo2.jpg)
+### Add News
+![Add News]([uploads/photo2.jpg](https://github.com/mehrab21/NewsWebPortal/blob/main/wwwroot/uploads/photo2.jpg))
 
 ### Article Detail
-![Article Detail](uploads/adminlogin.jpg)
+![Admin Login]([uploads/adminlogin.jpg](https://github.com/mehrab21/NewsWebPortal/blob/main/wwwroot/uploads/adminlogin.jpg))
 
 ### Admin Panel
-![Admin Panel](uploads/adminpanel.jpg)
+![Admin Panel]([uploads/adminpanel.jpg](https://github.com/mehrab21/NewsWebPortal/blob/main/wwwroot/uploads/adminpanel.jpg))
 
 ---
 
