@@ -21,12 +21,12 @@ namespace NewsWebPortal.Controllers
 
             string ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "8.8.8.8";
             
-            if (ip == "::1")
-            {
-                //ip = "103.100.234.28"; bangladesh ip for check
-                //ip = "8.8.8.8"; //us ip for check
-                ip = "27.104.0.1"; // singapure ip for check
-            }
+            //if (ip == "::1")
+            //{
+            //    //ip = "103.100.234.28"; bangladesh ip for check
+            //    //ip = "8.8.8.8"; //us ip for check
+            //    ip = "27.104.0.1"; // singapure ip for check
+            //}
 
             string? country = await _geoService.GetCountryByIPAsync(ip);
             string Countryname = country ?? "Unknown";

@@ -12,10 +12,11 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("7857e74a-426a-4edd-a4de-4e3abc6c89ce")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("NewsWebPortal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39876a3e33580b3c207338defb5bbd17b411d9d1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+772fda909e3c8fe2beb54c7612028f37a4879035")]
 [assembly: System.Reflection.AssemblyProductAttribute("NewsWebPortal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NewsWebPortal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

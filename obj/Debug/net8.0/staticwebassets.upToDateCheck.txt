@@ -94,7 +94,12 @@ wwwroot\uploads\8e3cd78f-c65c-47ed-8b79-91d528d2f0b3.png
 wwwroot\uploads\8ed46634-84a2-496e-afed-4497029d9a21.png
 wwwroot\uploads\920dc192-984f-4b29-8fa6-808f11c67866.png
 wwwroot\uploads\9f79606c-d37a-4e55-a6c3-f5bdea6f557c.png
+wwwroot\uploads\adminlogin.jpg
+wwwroot\uploads\adminpanel.jpg
 wwwroot\uploads\af8c1f82-fe99-4869-a97b-f107cfbb092f.png
 wwwroot\uploads\cef5d352-529f-4156-9ecd-ef5a7e13910d.jpg
 wwwroot\uploads\dd73a993-a824-4214-a30d-8cd0c764b900.jpg
 wwwroot\uploads\fb4d0543-1996-46ef-bc28-c212b4583a52.png
+wwwroot\uploads\fd1c2f11-9392-4214-8b52-1bd776e15bcc.png
+wwwroot\uploads\photo1.jpg
+wwwroot\uploads\photo2.jpg
