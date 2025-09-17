@@ -8,6 +8,20 @@ NewsWebPortal is a dynamic web application built using ASP.NET Core, designed to
 - **Admin Panel**: Manage articles, categories, and user comments.
 - **Responsive Design**: Optimized for desktop and mobile devices.
 - **Search Functionality**: Quickly find articles by keywords.
+## 📸 Screenshots
+### Homepage
+![Homepage](images/photo1.jpg)
+
+### Article Listing
+![Article Listing](images/photo2.jpg)
+
+### Article Detail
+![Article Detail](images/photo3.jpg)
+
+### Admin Panel
+![Admin Panel](images/photo4.jpg)
+
+---
 
 ## Installation
 
